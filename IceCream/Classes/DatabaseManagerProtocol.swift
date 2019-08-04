@@ -7,6 +7,7 @@
 
 import CloudKit
 
+@available(iOS 10.0, *)
 public protocol DatabaseManager: class {
     
     /// A conduit for accessing and performing operations on the data of an app container.
@@ -41,6 +42,7 @@ public protocol DatabaseManager: class {
     func cleanUp()
 }
 
+@available(iOS 10.0, *)
 extension DatabaseManager {
     
     func prepare() {

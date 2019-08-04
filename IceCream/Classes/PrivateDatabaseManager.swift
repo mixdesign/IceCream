@@ -13,6 +13,7 @@ import UIKit
 
 import CloudKit
 
+@available(iOS 10.0, *)
 final class PrivateDatabaseManager: DatabaseManager {
     
     let container: CKContainer
@@ -191,6 +192,7 @@ final class PrivateDatabaseManager: DatabaseManager {
     }
 }
 
+@available(iOS 10.0, *)
 extension PrivateDatabaseManager {
     /// The changes token, for more please reference to https://developer.apple.com/videos/play/wwdc2016/231/
     var databaseChangeToken: CKServerChangeToken? {

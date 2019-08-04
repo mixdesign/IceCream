@@ -17,6 +17,8 @@ import CloudKit
 /// "Data and String properties cannot hold data exceeding 16MB in size. To store larger amounts of data, either break it up into 16MB chunks or store it directly on the file system, storing paths to these files in the Realm. An exception will be thrown at runtime if your app attempts to store more than 16MB in a single property."
 /// We choose the latter, that's storing it directly on the file system, storing paths to these files in the Realm.
 /// So this is the deal.
+
+@available(iOS 10.0, *)
 public class CreamAsset: Object {
     @objc dynamic var uniqueFileName = ""
     @objc dynamic var data: Data?
@@ -73,8 +75,7 @@ public class CreamAsset: Object {
     ///   - asset: The CKAsset where we will pull the URL for creating the asset
     /// - Returns: A CreamAsset if it was successful
     static func parse(from propName: String, record: CKRecord, asset: CKAsset) -> CreamAsset? {
-        guard let url = asset.fileURL else { return nil }
-        return CreamAsset(objectID: record.recordID.recordName, propName: propName, url: url)
+        return CreamAsset(objectID: record.recordID.recordName, propName: propName, url: asset.fileURL)
     }
 
     /// Creates a new CreamAsset for the given object with Data
@@ -122,6 +123,7 @@ public class CreamAsset: Object {
     }
 }
 
+@available(iOS 10.0, *)
 extension CreamAsset {
     /// The default path for the storing of CreamAsset. That is:
     /// xxx/Document/CreamAsset/

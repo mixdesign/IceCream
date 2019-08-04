@@ -13,10 +13,11 @@ import CloudKit
 /// 2. it handles all of the CloudKit config stuffs, such as subscriptions
 /// 3. it hands over CKRecordZone stuffs to SyncObject so that it can have an effect on local Realm Database
 
+@available(iOS 10.0, *)
 public final class SyncEngine {
     
     private let databaseManager: DatabaseManager
-    
+
     public convenience init(objects: [Syncable], databaseScope: CKDatabase.Scope = .private, container: CKContainer = .default()) {
         switch databaseScope {
         case .private:
@@ -66,6 +67,7 @@ public final class SyncEngine {
 }
 
 // MARK: Public Method
+@available(iOS 10.0, *)
 extension SyncEngine {
     
     /// Fetch data on the CloudKit and merge with local

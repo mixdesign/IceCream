@@ -8,10 +8,12 @@
 import CloudKit
 import RealmSwift
 
+@available(iOS 10.0, *)
 public protocol CKRecordRecoverable {
     
 }
 
+@available(iOS 10.0, *)
 extension CKRecordRecoverable where Self: Object {
     static func parseFromRecord(record: CKRecord, realm: Realm) -> Self? {
         let o = Self()

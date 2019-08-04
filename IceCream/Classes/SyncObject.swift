@@ -15,6 +15,7 @@ import CloudKit
 /// 2. it detects the changeSets of Realm Database and directly talks to it.
 /// 3. it hands over to SyncEngine so that it can talk to CloudKit.
 
+@available(iOS 10.0, *)
 public final class SyncObject<T> where T: Object & CKRecordConvertible & CKRecordRecoverable {
     
     /// Notifications are delivered as long as a reference is held to the returned notification token. We should keep a strong reference to this token on the class registering for updates, as notifications are automatically unregistered when the notification token is deallocated.
@@ -33,6 +34,7 @@ public final class SyncObject<T> where T: Object & CKRecordConvertible & CKRecor
 
 // MARK: - Zone information
 
+@available(iOS 10.0, *)
 extension SyncObject: Syncable {
     
     public var recordType: String {

@@ -9,6 +9,7 @@ import Foundation
 import CloudKit
 import RealmSwift
 
+@available(iOS 10.0, *)
 public protocol CKRecordConvertible {
     static var recordType: String { get }
     static var zoneID: CKRecordZone.ID { get }
@@ -20,6 +21,7 @@ public protocol CKRecordConvertible {
     var isDeleted: Bool { get }
 }
 
+@available(iOS 10.0, *)
 extension CKRecordConvertible where Self: Object {
     
     public static var databaseScope: CKDatabase.Scope {

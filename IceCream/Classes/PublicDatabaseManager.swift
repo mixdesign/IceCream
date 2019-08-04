@@ -13,6 +13,7 @@ import UIKit
 
 import CloudKit
 
+@available(iOS 10.0, *)
 final class PublicDatabaseManager: DatabaseManager {
     
     let container: CKContainer
